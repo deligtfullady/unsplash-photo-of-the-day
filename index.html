@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фото дня — Unsplash</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="logo">Photo of the Day</h1>
+      <p class="subtitle">Случайное фото из Unsplash</p>
+    </header>
+
+    <main class="main">
+      <!-- Состояние загрузки -->
+      <div id="loader" class="loader">
+        <div class="spinner"></div>
+        <p>Загружаем фото...</p>
+      </div>
+
+      <!-- Ошибка -->
+      <div id="error" class="error hidden">
+        <p id="error-message"></p>
+        <button id="retry-btn" class="btn btn-primary">Попробовать снова</button>
+      </div>
+
+      <!-- Карточка фото -->
+      <article id="photo-card" class="photo-card hidden">
+        <div class="photo-wrapper">
+          <img id="photo" src="" alt="Случайное фото" class="photo">
+          <a id="unsplash-link" href="#" target="_blank" rel="noopener" class="unsplash-badge">
+            Unsplash
+          </a>
+        </div>
+
+        <div class="photo-info">
+          <div class="photographer">
+            <img id="photographer-avatar" src="" alt="" class="avatar">
+            <div class="photographer-details">
+              <a id="photographer-name" href="#" target="_blank" rel="noopener" class="name"></a>
+              <span id="photographer-username" class="username"></span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="like-btn" class="btn btn-like" aria-label="Лайк">
+              <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <span id="like-count">0</span>
+            </button>
+
+            <button id="new-photo-btn" class="btn btn-secondary">
+              Новое фото
+            </button>
+          </div>
+
+          <p id="photo-description" class="description"></p>
+        </div>
+      </article>
+
+      <!-- История -->
+      <section id="history-section" class="history-section hidden">
+        <h2>История просмотров</h2>
+        <div id="history-list" class="history-list"></div>
+        <button id="clear-history-btn" class="btn btn-text">Очистить историю</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Сделано с Unsplash API · Лайки и история хранятся в localStorage</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
